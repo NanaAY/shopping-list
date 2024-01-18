@@ -16,9 +16,14 @@ body {
   background-color: #f5f5f5;
 }
 
+.dark-mode {
+  color: #f5f5f5;
+  background-color: #111324;
+}
+
 header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
@@ -63,7 +68,7 @@ header h1 {
 
 /* Buttons */
 .btn {
-  background-color: #333;
+  background-color: #111324;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -71,8 +76,13 @@ header h1 {
   cursor: pointer;
 }
 
+.btn-dark {
+  border: 1px solid #ccc;
+  color: #ccc;
+}
+
 .btn:hover {
-  background-color: #444;
+  background-color: #121429;
 }
 
 .btn-link {

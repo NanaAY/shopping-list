@@ -4,7 +4,30 @@ const itemList = document.getElementById("item-list");
 const clrButton = document.getElementById("clear");
 const filterInput = document.getElementById("filter");
 const formBtn = itemForm.querySelector("button");
+const lightDarkBtn = document.getElementById("light/dark");
 let isEditMode = false;
+// let isDarkMode = false;
+
+function toggleLightDark() {
+  document.body.classList.toggle("dark-mode");
+  formBtn.classList.toggle("btn-dark");
+  clrButton.classList.toggle("btn-dark");
+
+  // if (document.body.classList.contains("dark-mode")) {
+  //   document.body.classList.remove("dark-mode");
+  //   return;
+  // }
+  // document.body.classList.add("dark-mode");
+
+  // if (isDarkMode) {
+  //   body.style.backgroundColor = "#f5f5f5";
+  //   body.style.color = "#333";
+  //   return;
+  // }
+  // body.style.backgroundColor = "#333";
+  // body.style.color = "#f5f5f5";
+  // isDarkMode = true;
+}
 
 function onClickItem(e) {
   if (e.target.parentElement.classList.contains("remove-item")) {
@@ -20,8 +43,9 @@ function itemToEdit(item) {
     .querySelectorAll("li")
     .forEach((i) => i.classList.remove("edit-mode"));
   item.classList.add("edit-mode");
-  formBtn.innerHTML = '<i class="fa-solid fa-pen"></i> Update Item';
+  formBtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
   formBtn.style.backgroundColor = "#228822";
+  formBtn.style.border = "none";
   itemInput.value = item.textContent;
 }
 
@@ -143,8 +167,8 @@ function checkState() {
     filterInput.classList.remove("hide");
   }
 
-  formBtn.innerHTML = '<i class="fa-solid fa-plus"></i> Add Item';
-  formBtn.style.backgroundColor = "#333";
+  formBtn.innerHTML = '<i class="fa-solid fa-plus"></i>';
+  formBtn.style.backgroundColor = "#111324";
 }
 
 function filterItems(e) {
@@ -169,6 +193,7 @@ function init() {
   itemList.addEventListener("click", onClickItem);
   clrButton.addEventListener("click", clearAll);
   filterInput.addEventListener("input", filterItems);
+  lightDarkBtn.addEventListener("click", toggleLightDark);
   document.addEventListener("DOMContentLoaded", displayItems);
 
   checkState();
